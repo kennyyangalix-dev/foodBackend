@@ -52,9 +52,9 @@ class PlacesController(private val cachedPlacesRepository: LocalRepository) {
                 )
             }
 
-            return ResponseEntity.ok(PlacesResponse(null, "OK", response.body?.filterPlaces()))
+            ResponseEntity.ok(PlacesResponse(null, "OK", response.body?.filterPlaces()))
         } catch (e: Exception) {
-            return ResponseEntity.status(500).body(PlacesResponse(e.localizedMessage, "ERROR", null))
+            ResponseEntity.status(500).body(PlacesResponse(e.localizedMessage, "ERROR", null))
         }
     }
 }
